@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>co.esampio.rest</groupId>
 	<artifactId>app-rest</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.modelmapper</groupId>
@@ -27,7 +27,6 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-
 	</dependencies>
 
 </project>

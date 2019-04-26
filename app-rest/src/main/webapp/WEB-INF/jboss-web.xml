@@ -1,0 +1,4 @@
+<!DOCTYPE xml>
+<jboss-web>
+	<context-root>/app-rest</context-root>
+</jboss-web>
