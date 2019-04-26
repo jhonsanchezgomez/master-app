@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.esampio</groupId>
+		<artifactId>master-app</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>co.esampio.rest</groupId>
+	<artifactId>app-rest</artifactId>
+	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>co.esampio.bussines</groupId>
+			<artifactId>app-bussines</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.esampio.security</groupId>
+			<artifactId>app-security</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+
+	</dependencies>
+
+</project>
