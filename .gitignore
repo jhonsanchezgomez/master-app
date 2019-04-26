@@ -23,3 +23,25 @@
 hs_err_pid*
 
 /target/*
+
+*.project
+*.settings/*
+app-bussines/.classpath*
+app-bussines/*.project
+app-bussines/*.settings/*
+
+app-repository/.classpath*
+app-repository/*.project
+app-repository/*.settings/*
+
+app-rest/.classpath*
+app-rest/*.project
+app-rest/*.settings/*
+
+app-security/.classpath*
+app-security/*.project
+app-security/*.settings/*
+
+app-utiles/.classpath*
+app-utiles/*.project
+app-utiles/*.settings/*
