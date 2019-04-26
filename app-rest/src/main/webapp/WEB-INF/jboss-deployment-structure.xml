@@ -1,5 +1,6 @@
 <jboss-deployment-structure>
     <deployment>
+    <!-- Librerias que se deben excluir para que utilice las librerias de el servidor de aplicaciones WildFly -->
         <exclusions>
             <module name="com.fasterxml.jackson.core.jackson-core" />
             <module name="com.fasterxml.jackson.core.jackson-annotations" />
