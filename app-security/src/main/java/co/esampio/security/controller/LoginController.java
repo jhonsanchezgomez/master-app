@@ -20,8 +20,11 @@ import co.esampio.repo.entity.usecurity.RoleRestEntity;
 import co.esampio.security.service.ITokenService;
 import co.esampio.util.response.ResponseRestService;
 import co.esampio.util.securitydto.LoginDTO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
+@Api(description = "Rest Controller para Login")
 public class LoginController {
 	
 	@Autowired
@@ -32,7 +35,7 @@ public class LoginController {
 	
 	@Autowired
 	IRoleRestService roleRestService;
-	
+	@ApiOperation(value = "Este servicio autentica el usuario y contraseña para generar un token que permite el acceso a los demás servicios")
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<ResponseRestService<String>> login(@RequestBody LoginDTO loginDTO){
 		if (!usuarioService.validateAuth(loginDTO.getUsuario(),loginDTO.getContrasenia())) {

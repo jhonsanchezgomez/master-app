@@ -22,6 +22,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/login")
 		.permitAll()
+		.antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**")
+		.permitAll()
 		.anyRequest()
 		.authenticated();
 	}

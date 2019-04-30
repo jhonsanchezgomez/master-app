@@ -20,9 +20,13 @@ import co.esampio.util.dto.InformacionTarjetaDTO;
 import co.esampio.util.dto.TIPO_TRANSACCION;
 import co.esampio.util.dto.TarjetaDTO;
 import co.esampio.util.response.ResponseRestService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("/v1.0/tarjetas")
+@Api(value = "Rest Controller para Tarjeta")
 public class InformacionTarjeta {
 		
 	@Autowired
@@ -34,11 +38,13 @@ public class InformacionTarjeta {
 	@Autowired
 	IInformacionTarjetaService informacionTarjeta;
 	
-	@PostMapping(value="/recarga", consumes="application/json", produces="application/json")
+	@ApiOperation(value =  "Este servicio se encarga de realizar las transacciones de descuento o recarga de una tarjeta")
+	@PostMapping(value="/transacciones", consumes="application/json", produces="application/json")
 	public ResponseEntity<ResponseRestService<Boolean>> dataActu(@RequestBody TarjetaDTO tarjeta) throws Exception{		
 		return new ResponseEntity<>(new ResponseRestService<>(transaccionGlobalTarjetaService.generaTransaccion((tarjeta.getTipo().equalsIgnoreCase("DESCUENTO") ? TIPO_TRANSACCION.CREDITO : TIPO_TRANSACCION.DEBITO), tarjeta.getIdT(), tarjeta.getMonto())),HttpStatus.OK);
 	}
 
+	@ApiOperation(value = "Este servicio consulta la información todas las tarjetas")
 	@GetMapping(value="/", produces="application/json")
 	public ResponseEntity<ResponseRestService<InformacionTarjetaDTO>> getTarjetas(){
 		InformacionTarjetaDTO[] informacionTarjetaDTO = mapper.map(informacionTarjeta.getAll(), InformacionTarjetaDTO[].class);
@@ -48,8 +54,9 @@ public class InformacionTarjeta {
 		return new ResponseEntity<>(new ResponseRestService<>(informacionTarjetaDTO), HttpStatus.OK);
 	}
 	
+	@ApiOperation(value = "Este servicio consulta la información de una tarjeta en especifico")
 	@GetMapping(value="/{id}", produces="application/json")
-	public ResponseEntity<ResponseRestService<InformacionTarjetaDTO>> getTarjeta(@PathVariable Long id){
+	public ResponseEntity<ResponseRestService<InformacionTarjetaDTO>> getTarjeta(@ApiParam(value = "Id de la tarjeta para realizar la consulta") @PathVariable Long id){
 		Optional<InformacionTarjetaEntity> tarjeta = informacionTarjeta.get(id);
 		if (!tarjeta.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
