@@ -1,4 +1,4 @@
-package co.esampio.repo.entity.entities;
+	package co.esampio.repo.entity.entities;
 
 import java.math.BigDecimal;
 import java.util.Date;
